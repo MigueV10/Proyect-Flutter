@@ -1,9 +1,11 @@
-class ReporteServicio {
-  //Hacemos la assercion del reporte, el cual mandara a llamar nuestros metodos de la clase "reporte_servicio.dart"
-  final ReporteServicio _reporte = ReporteServicio();
+import 'package:dominios/dominios/reporte_servicio.dart';
 
-  List<String> generarReporte(String materia, String grupo, String carrera) {
-    return _reporte.generarReporte(materia, grupo, carrera);
+class ReporteServicioService {
+  //Hacemos la assercion del reporte, el cual mandara a llamar nuestros metodos de la clase "reporte_servicio.dart"
+  final ReporteServicioService _reporte = ReporteServicioService();
+
+  List<String> generarReporteSatisfaccion(String materia, String grupo, String carrera) {
+    return _reporte.generarReporteSatisfaccion(materia, grupo, carrera);
   }
 
   //Funciones llamando al dominio
@@ -46,5 +48,5 @@ class ReporteServicio {
   String generarInformePDF(String grupo, String sala, String periodo) {
     return _reporte.generarInformePDF(grupo, sala, periodo);
   }
-  
+
 }

@@ -1,8 +1,14 @@
 // dominio/reporte_servicio.dart
 class ReporteServicio {
-  void generarReporteSatisfaccion(String materia, String grupo, String carrera) {
-    // lógica para generar reporte de satisfacción
-  }
+  List<String> generarReporteSatisfaccion(String materia, String grupo, String carrera) {
+    return [
+      "Materia: $materia",
+      "Grupo: $grupo",
+      "Carrera: $carrera",
+      "Nivel de satisfacción: Alta",
+    ];
+    }
+  }// lógica para generar reporte de satisfacción
 
   void certificarSatisfaccionServicio(String materia, String grupo, int calificacion) {
     // lógica para certificar satisfacción
@@ -39,4 +45,3 @@ class ReporteServicio {
   void generarInformePDF(String grupo, String sala, String periodo) {
     // lógica para generar informe PDF
   }
-}

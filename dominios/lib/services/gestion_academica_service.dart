@@ -1,4 +1,4 @@
-import 'package:dominios/dominio/gestion_academica.dart';
+import 'package:dominios/dominios/gestion_academica.dart';
 
 class GestionAcademicaService {
   final GestionAcademica _gestionAcademica = GestionAcademica();
@@ -9,5 +9,16 @@ class GestionAcademicaService {
 
   /*Map<String, dynamic>*/void escanearCodigoQR(String qrData) {
     return _gestionAcademica.escanearCodigoQR(qrData);
+  }
+  void asignarAlumnosAGrupo(int grupoId, List<String> listaAlumnos) {
+    _gestionAcademica.asignarAlumnosAGrupo(grupoId, listaAlumnos);
+  }
+
+  void configurarHorarioLaboratorio(String sala, String periodo, String grupo) {
+    _gestionAcademica.configurarHorarioLaboratorio(sala, periodo, grupo);
+  }
+
+  /*List<String>*/ consultarInformesSatisfaccion() {
+    return _gestionAcademica.consultarInformesSatisfaccion();
   }
 }

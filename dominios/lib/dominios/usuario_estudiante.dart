@@ -1,3 +1,5 @@
+//Subcarpeta DOMINIOS para el actor "ESTUDIANTE: DOMINIO"
+
 class UsuarioEstudiante {
   void llenarEvaluacionServicio(
     int servicioId,

@@ -1,3 +1,4 @@
+//Este dominio le pertenece al actor "DOCENTE:SERVICE"
 import 'package:dominios/dominios/gestion_academica.dart';
 
 class GestionAcademicaService {

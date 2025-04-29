@@ -1,3 +1,5 @@
+//Subcarpeta SERVICES para el actor "Auxiliar de Laboratorio:SERVICES"
+
 import 'package:dominios/dominios/operador_laboratorio.dart';
 
 // class OperadorLaboratorioService {

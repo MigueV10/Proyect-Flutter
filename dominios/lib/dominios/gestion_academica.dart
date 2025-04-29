@@ -1,3 +1,5 @@
+
+//Este dominio le pertenece al actor "DOCENTE:DOMINIO"
 class GestionAcademica {
   void generarCodigoQR(
     String grupo,

@@ -1,3 +1,5 @@
+//Subcarpeta DOMINIOS para el actor "Auxiliar de Laboratorio:DOMINIO"
+
 class OperadorLaboratorio {
   void controlarAcceso(String qrEscaneado){
     //logica para controlar el acceso al laboratorio

@@ -1,4 +1,5 @@
-// dominio/reporte_servicio.dart
+//Subcarpeta DOMINIOS para el actor "ADMINISTRADOR:DOMINIO"
+
 class ReporteServicio {
   List<String> generarReporteSatisfaccion(String materia, String grupo, String carrera) {
     return [
@@ -35,7 +36,7 @@ class ReporteServicio {
 
   List<String> listarSoftwarePorAsignatura() {
     // lógica para listar software
-    return ['NetBeans', 'Eclipse'];
+    return ['NetBeans', 'Eclipse', 'SQL', 'DOSBOX', 'C++', 'AUTOCAD'];
   }
 
   void evaluarSatisfaccionPorSoftware() {

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Sistema de Laboratorios',
+        title: 'Gestion de Laboratorio',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -42,35 +42,38 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sistema de Laboratorios'),
-      ),
+      appBar: AppBar(title: const Text('Sistema de Laboratorios')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Bienvenido al sistema',
-              style: TextStyle(fontSize: 20),
-            ),
+            const Text('Bienvenido al sistema', style: TextStyle(fontSize: 20)),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                final adminProvider = Provider.of<ReporteServicioProvider>(context, listen: false);
-                final reporteSatisfaccion = adminProvider.generarReporte("Matemáticas", "G1", "ISC");
-
+                final adminProvider = Provider.of<ReporteServicioProvider>(
+                  context,
+                  listen: false,
+                );
+                final reporteSatisfaccion = adminProvider.generarReporte(
+                  "Matemáticas",
+                  "G1",
+                  "ISC",
+                );
+                print("ok");
                 showDialog(
                   context: context,
-                  builder: (_) => AlertDialog(
-                    title: const Text("Reporte generado"),
-                    content: Text(reporteSatisfaccion.join("\n")),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text("Cerrar"),
-                      )
-                    ],
-                  ),
+                  builder:
+                      (_) => AlertDialog(
+                        title: const Text("Reporte generado"),
+                        content: Text(reporteSatisfaccion.join("\n")),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text("Cerrar"),
+                          ),
+                        ],
+                      ),
                 );
               },
               child: const Text("Generar reporte (Admin)"),
@@ -81,5 +84,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-

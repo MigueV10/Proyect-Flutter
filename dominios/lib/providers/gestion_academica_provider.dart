@@ -1,3 +1,5 @@
+//Este dominio le pertenece al actor "DOCENTE:PROVIDER\"
+
 import 'package:dominios/services/gestion_academica_service.dart';
 import 'package:dominios/services/reporte_servicio_service.dart';
 import 'package:flutter/material.dart';

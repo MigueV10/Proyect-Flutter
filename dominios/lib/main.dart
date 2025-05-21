@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
       ),
-    );
+    ); 
   }
 }
 
@@ -56,8 +56,8 @@ class HomePage extends StatelessWidget {
                   listen: false,
                 );
                 final reporteSatisfaccion = adminProvider.generarReporte(
-                  "Matemáticas",
-                  "G1",
+                  "Procesamiento de Datos Python",
+                  "XB",
                   "ISC",
                 );
                 print("ok");

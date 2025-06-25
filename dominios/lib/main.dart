@@ -1,11 +1,16 @@
+import 'package:dominios/views/Docente.dart';
+import 'package:dominios/views/EstudianteHomeView.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// Importación de los providers
+// Providers
 import 'package:dominios/providers/gestion_academica_provider.dart';
 import 'package:dominios/providers/operador_laboratorio.dart';
 import 'package:dominios/providers/reporte_servicio_provider.dart';
 import 'package:dominios/providers/usuario_estudiante_provider.dart';
+
+// Views
+import 'package:dominios/views/LoginView.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,62 +30,18 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Gestion de Laboratorio',
+        title: 'Sistema de Laboratorios',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const HomePage(),
-      ),
-    ); 
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Sistema de Laboratorios')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Bienvenido al sistema', style: TextStyle(fontSize: 20)),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                final adminProvider = Provider.of<ReporteServicioProvider>(
-                  context,
-                  listen: false,
-                );
-                final reporteSatisfaccion = adminProvider.generarReporte(
-                  "Procesamiento de Datos Python",
-                  "XB",
-                  "ISC",
-                );
-                print("ok");
-                showDialog(
-                  context: context,
-                  builder:
-                      (_) => AlertDialog(
-                        title: const Text("Reporte generado"),
-                        content: Text(reporteSatisfaccion.join("\n")),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: const Text("Cerrar"),
-                          ),
-                        ],
-                      ),
-                );
-              },
-              child: const Text("Generar reporte (Admin)"),
-            ),
-          ],
-        ),
-      ),
+       home: const LoginView(),
+routes: {
+  '/estudiante': (_) => const EstudianteHomeView(),
+  '/docente': (_) => const HomeDocenteView(),
+      
+},
+      )
     );
   }
 }
+

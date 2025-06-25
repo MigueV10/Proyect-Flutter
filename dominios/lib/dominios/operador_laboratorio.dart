@@ -3,6 +3,7 @@
 class OperadorLaboratorio {
   void controlarAcceso(String qrEscaneado){
     //logica para controlar el acceso al laboratorio
+    
   }
   void monitorearEquipo(String salaId){
     //Logica para monitereo de equipios
@@ -14,3 +15,6 @@ class OperadorLaboratorio {
     //logica para proveer servicio basico
   }
 }
+
+// A la hora de registrar una falla, el estudiante o quien reporta la falla debe estar registrado con el codigo
+// QR, hacer una regla de negocio para que no cualquier estudiante reporte una falla.

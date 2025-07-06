@@ -36,7 +36,7 @@ class ReportarFallaView extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF0A1C59),
               ),
-              child: const Text("SALIR"),
+              child: const Text("ENVIAR"),
             ),
           ],
         ),

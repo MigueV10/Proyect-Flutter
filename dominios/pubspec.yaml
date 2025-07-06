@@ -30,8 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   provider: ^6.1.1
   cupertino_icons: ^1.0.8
+  mobile_scanner: ^3.4.1
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +51,15 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  assets:
+  - assets/logo.png
+  - assets/ITZ.png
+  - assets/TEC.png
+  - assets/outlook.png
+  - assets/google.png
+  - assets/phone.png
+  - assets/estudiante_fondo.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,7 +1,6 @@
 import 'package:dominios/views/Docente.dart';
 import 'package:dominios/views/EstudianteHomeView.dart';
 import 'package:flutter/material.dart';
-// Aquí también podrías importar otras vistas como docente, admin, etc.
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -20,7 +19,6 @@ class _LoginViewState extends State<LoginView> {
     final usuario = usuarioController.text.trim();
     final contrasena = contrasenaController.text;
 
-    // Simulación de credenciales por tipo de usuario
     if (usuario == "estudiante" && contrasena == "1234") {
       Navigator.pushReplacement(
         context,
@@ -41,59 +39,115 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F5FC),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 80),
-        child: Column(
-          children: [
-            const Text(
-              "TECNOLOGICO NACIONAL DE MEXICO",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              textAlign: TextAlign.center,
-            ),
-            const Text(
-              "Instituto Tecnológico de Zacatepec",
-              style: TextStyle(fontSize: 14),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            Image.asset(
-              'assets/logo.png', // Asegúrate de tener este logo en assets
-              height: 100,
-            ),
-            const SizedBox(height: 30),
-            TextField(
-              controller: usuarioController,
-              decoration: const InputDecoration(
-                labelText: "Usuario",
-                prefixIcon: Icon(Icons.person),
-                border: OutlineInputBorder(),
+      backgroundColor: const Color(0xFFEAF0FA),
+      body: Center(
+        child: Container(
+          width: 360,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                offset: Offset(0, 4),
+              )
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 10),
+              const Text(
+                "Instituto Tecnológico de Zacatepec",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              controller: contrasenaController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: "Contraseña",
-                prefixIcon: Icon(Icons.lock),
-                border: OutlineInputBorder(),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/TEC.png', height: 60), // logo izquierdo
+                  const SizedBox(width: 20),
+                  Image.asset('assets/ITZ.png', height: 60), // logo derecho
+                ],
               ),
-            ),
-            const SizedBox(height: 20),
-            if (error.isNotEmpty)
-              Text(error, style: const TextStyle(color: Colors.red)),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: login,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF0A1C59),
-                minimumSize: const Size(double.infinity, 50),
+              const SizedBox(height: 20),
+              TextField(
+                controller: usuarioController,
+                decoration: InputDecoration(
+                  labelText: 'Usuario',
+                  prefixIcon: const Icon(Icons.person),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
               ),
-              child: const Text("INGRESAR"),
-            ),
-          ],
+              const SizedBox(height: 15),
+              TextField(
+                controller: contrasenaController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Contraseña de Tecnamex',
+                  prefixIcon: const Icon(Icons.lock),
+                  suffixIcon: const Icon(Icons.visibility),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              if (error.isNotEmpty)
+                Text(error, style: const TextStyle(color: Colors.red)),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: login,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0A1C59),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text("Ingresar"),
+                ),
+              ),
+              const SizedBox(height: 25),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _iconLoginButton('assets/outlook.png'),
+                  const SizedBox(width: 15),
+                  _iconLoginButton('assets/google.png'),
+                  const SizedBox(width: 15),
+                  _iconLoginButton('assets/phone.png'),
+                ],
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _iconLoginButton(String assetPath) {
+    return InkWell(
+      onTap: () {
+        // Puedes manejar lógica para login alternativo
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Funcionalidad aún no implementada")),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black12),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Image.asset(assetPath, height: 32),
       ),
     );
   }
